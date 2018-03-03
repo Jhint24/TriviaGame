@@ -24,9 +24,19 @@ $(document).ready(function()
 $(".start-game-button").click(function()
 {
     $(this).hide();
-    $(".trivia-question").text(this.questions.question);
-    $(".trivia-answers").text("answers");
-    
+    function renderTrivia()
+    {
+        $("#trivia-question", "#trivia-answer").empty();
+        for (var i = 0; i <questions.length;i++)
+        {
+            var a = $("<button>");
+            a.addClass("btn answer-buttons");
+            a.text(questions[i].choices);
+        }
+        
+    $(".trivia-question").text(questions[0].question);
+    $(".trivia-answers").append(a);
+    }
 });
 //call the first question and choices
 //start a timer for question
