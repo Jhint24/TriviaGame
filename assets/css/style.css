@@ -1,0 +1,40 @@
+body
+{
+    background-image: url(../images/officeBackground.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.start-paragraph 
+{
+ text-align: center;   
+}
+
+.game-center
+{
+    text-align: center;
+    font-family: Impact, "Haettenschweiler", 'Arial Narrow Bold', sans-serif;
+    color: aliceblue;
+    background-color: #17459d;
+    float: left;
+
+}
+
+@font-face
+{
+    font-family: typewriterFont;
+    src: url(TravelingTypewriter.ttf);
+}
+
+.trivia-question
+{
+    font-family: typewriterFont;
+    font-size: 2em;
+}
+
+.trivia-answers
+{
+    font-family: typewriterFont;
+    font-size: 2em;
+}
