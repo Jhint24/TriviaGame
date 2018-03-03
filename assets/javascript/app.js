@@ -24,20 +24,17 @@ $(document).ready(function()
 $(".start-game-button").click(function()
 {
     $(this).hide();
-    function renderTrivia()
-    {
-        $("#trivia-question", "#trivia-answer").empty();
-        for (var i = 0; i <questions.length;i++)
-        {
-            var a = $("<button>");
-            a.addClass("btn answer-buttons");
-            a.text(questions[i].choices);
-        }
-        
-    $(".trivia-question").text(questions[0].question);
+        var answerChoices = (questions[0].choices);
+        var a = $("<button>");
+        a.addClass("btn");
+        a.addClass("answerButtons");
+        a.text(answerChoices);
+
+    $(".trivia-question").html(questions[0].question);
     $(".trivia-answers").append(a);
-    }
+
 });
+
 //call the first question and choices
 //start a timer for question
 //once user clicks an answer or timer runs out, show answer
@@ -47,4 +44,5 @@ $(".start-game-button").click(function()
 
 
 
-})
+});
+
