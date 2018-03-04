@@ -19,19 +19,26 @@ var questions = //create list of questions
     image: ("")
 }];
 $(document).ready(function()
-{   
+{ 
+
+    
 //clear start button when clicked
 $(".start-game-button").click(function()
 {
     $(this).hide();
-        var answerChoices = (questions[0].choices);
-        var a = $("<button>");
-        a.addClass("btn");
-        a.addClass("answerButtons");
-        a.text(answerChoices);
+    
+    var answerChoices = (questions[0].choices);
+    for (var i = 0; i < answerChoices.length; i++)  
+    {
+    var a = $("<button>");
+    a.addClass("btn");
+    a.addClass("answerButtons");
+    a.text(answerChoices[i]);  
+    $(".trivia-answers").append(a);
+    }
 
     $(".trivia-question").html(questions[0].question);
-    $(".trivia-answers").append(a);
+
 
 });
 
