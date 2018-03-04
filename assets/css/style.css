@@ -23,6 +23,12 @@ body
 
 }
 
+.answer-buttons
+{
+    background-color: darkgrey;
+    margin: 10px;
+}
+
 @font-face
 {
     font-family: typewriterFont;

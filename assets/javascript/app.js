@@ -32,7 +32,7 @@ $(".start-game-button").click(function()
     {
     var a = $("<button>");
     a.addClass("btn");
-    a.addClass("answerButtons");
+    a.addClass("answer-buttons");
     a.text(answerChoices[i]);  
     $(".trivia-answers").append(a);
     }
