@@ -20,7 +20,20 @@ var questions = //create list of questions
 }];
 $(document).ready(function()
 { 
+//make a timer for question
+var count = 15;
+var counter = setInterval(timer, 1000);
 
+function timer()
+{
+    count = count - 1;
+    if (count <= 0)
+    {
+        clearInterval(counter);
+        //call next question here*******
+    }
+$(".timer-class").html("Time Remaining: " + count + " seconds");
+}
     
 //start game function
 $(".start-game-button").click(function()
@@ -38,13 +51,23 @@ $(".start-game-button").click(function()
     a.text(answerChoices[i]);  
     $(".trivia-answers").append(a);
     }
+
 });
-//make a timer for question
+
+
+//add timer to html
 //once user clicks an answer or timer runs out, show answer
 //call next question with no user inpout
 //add point for correct, incorrect, unanswered question
 //display the first question
 
+//timeout function for moving on????
+/*setTimeout(questionTimer, 1000 * 15);
+function questionTimer()
+{
+$(".timer-class").append("mom?");
+console.log("mom");
+}*/
 
 
 });
