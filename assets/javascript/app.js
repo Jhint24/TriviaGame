@@ -41,13 +41,20 @@ function timer()
 $(".timer-class").html("Time Remaining: " + count + " seconds");
 }
 }
-//start game function
+//click button to start game 
 $(".start-game-button").click(function()
 {   //clear start button when clicked
     $(this).hide();
-    gameTimer();//start timer
+    startGame();
+});
+
+//start game function
+function startGame()
+{
+    //start timer
+    gameTimer();
     //add first question to html
-    $(".trivia-question1").html(questions[0].question);
+    $(".trivia-question").html(questions[0].question);
     //make a loop for answer choices and add to html
     var answerChoices = (questions[0].choices);
     for (var i = 0; i < answerChoices.length; i++)  
@@ -56,14 +63,14 @@ $(".start-game-button").click(function()
     a.addClass("btn btn-outline-dark");
     a.addClass("answer-buttons");
     a.text(answerChoices[i]);  
-    $(".trivia-answers1").append(a);
+    $(".trivia-answers").append(a);
     }
-
-    function answerClick()  {
+}
+    
+//when answer is clicked 
+function answerClick()  {
 
     }
-
-});
 
 
 
