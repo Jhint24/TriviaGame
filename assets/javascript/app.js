@@ -1,9 +1,3 @@
-//create variables
-var currentQuestion = 0;
-var thatsCorrect = 0;
-var thatsIncorrect = 0;
-var notAnswered = 0;
-
 var questions = //create list of questions
 [{
 
@@ -18,9 +12,20 @@ var questions = //create list of questions
     correctAnswer: 3,
     image: ("")
 }];
+//create variables
+var allQuestions = []
+var currentQuestion = 0;
+var thatsCorrect = 0;
+var thatsIncorrect = 0;
+var notAnswered = 0;
+
+
 $(document).ready(function()
 { 
-//make a timer for question
+//make a timer function for question
+
+function gameTimer()
+{
 var count = 15;
 var counter = setInterval(timer, 1000);
 
@@ -30,8 +35,10 @@ function timer()
     if (count <= 0)
     {
         clearInterval(counter);
+
         //call next question here*******
     }
+}
 $(".timer-class").html("Time Remaining: " + count + " seconds");
 }
     
