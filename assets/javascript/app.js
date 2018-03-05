@@ -11,8 +11,15 @@ var triviaQuestions = //create list of questions
     answerList: ["The Flenderson Files", "Fool me Once", "I Declare Bankruptcy", "Threat Level Midnight"],
     answer: 3,
     image: ("")
-}];
-var gifArray = ["question1", "question2"];
+},
+{
+    question: "Where does Jim propose to Pam?",
+    answerList: ["The Office Roof", "Niagra Falls", "Rest Stop", "The Hospital"],
+    answer: 2,
+    image: ("") 
+},
+];
+var gifArray = ["question1", "question2", "question3"];
 var currentQuestion; 
 var correctAnswer; 
 var incorrectAnswer; 
