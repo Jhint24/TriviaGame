@@ -13,7 +13,7 @@ var questions = //create list of questions
     image: ("")
 }];
 //create variables
-var allQuestions = []
+var allQuestions = [];
 var currentQuestion = 0;
 var thatsCorrect = 0;
 var thatsIncorrect = 0;
@@ -35,13 +35,21 @@ function timer()
     if (count <= 0)
     {
         clearInterval(counter);
-
-        //call next question here*******
+            //call next question here*******
     }
 }
 $(".timer-class").html("Time Remaining: " + count + " seconds");
 }
-    
+function questionDisplayed()//function to pick a question each time
+{
+    for (var i = questions.length - 1; i >= 0; i--) 
+    {
+        if (questions[i] === 'something') 
+        { 
+            questions.splice(i, 1);
+        }
+    }
+}
 //start game function
 $(".start-game-button").click(function()
 {   //clear start button when clicked
@@ -62,7 +70,7 @@ $(".start-game-button").click(function()
 });
 
 
-//add timer to html
+
 //once user clicks an answer or timer runs out, show answer
 //call next question with no user inpout
 //add point for correct, incorrect, unanswered question
