@@ -16,26 +16,28 @@ var gifArray = ["question1", "question2"];
 var currentQuestion; 
 var correctAnswer; 
 var incorrectAnswer; 
-var unanswered;
+var unanswered; 
 var seconds; 
 var time; 
 var answered; 
 var userSelect;
 
-var gameAlerts = {
+var gameAlerts = 
+{
 	correct: "The customer is always right. FALSE, you are!",
 	incorrect: "NOOOOOOOOOOOOOO!",
-	endTime: "'You miss 100% of the shots you don't take' -Wayne Gretzky" + "\xa0" + "-Michael Scott",
+	endTime: "'You miss 100% of the shots you don't take' -Wayne Gretzky -Michael Scott",
     finished: "The only time I set the bar low is for Limbo"
 }
 
-
-$(".start-game-button").on("click", function(){
+$(".start-game-button").on("click", function()
+{
 	$(this).hide();
 	gameStart();
 });
-
-function gameStart(){
+//empty everything and have game fresh 
+function gameStart()
+{
 	$("#end-of-game").empty();
 	$("#number-answers-correct").empty();
 	$("#number-answers-incorrect").empty();
@@ -58,10 +60,10 @@ function theQuestions()
 	$("#current-question").html('Question #'+(currentQuestion+1)+'/'+triviaQuestions.length);
 	$(".question").html(triviaQuestions[currentQuestion].question);
 	for(var i = 0; i < 4; i++){//use the number of answers 
-		var choices = $("<button>");
+		var choices = $("<button>");//create button for answers
 		choices.text(triviaQuestions[currentQuestion].answerList[i]);
 		choices.attr({"data-index": i });//****data index */
-        choices.addClass("answer-buttons");
+        choices.addClass("answer-buttons");//bootstrap
         choices.addClass("btn btb-outline-dark");
 		$(".answers-list").append(choices);
 	}
@@ -75,27 +77,28 @@ function theQuestions()
 		correctedAnswers();
 	});
 }
-	function timerCount()
-	{
-		seconds = 20;
-		$("#time-remaining").html("Time Remaining: " + seconds + "  seconds");
-		answered = true;
-		//set timer interval here
-		time = setInterval(showTimerCount, 1000);
-	}
-	
-	function showTimerCount()
-	{//what to do with info
-		seconds--;
-		$("#time-remaining").html("Time Remaining: " + seconds + "  seconds");
-		if(seconds < 1){
-			clearInterval(time);
-			answered = false;
-			correctedAnswers();//switch pages to show corrects answers
-		}
-	}
 
-	function correctedAnswers()
+function timerCount()
+{
+	seconds = 20;
+	$("#time-remaining").html("Time Remaining: " + seconds + "  seconds");
+	answered = true;
+	//set timer interval here
+	time = setInterval(showTimerCount, 1000);
+}
+
+function showTimerCount()
+{//what to do with info
+	seconds--;
+	$("#time-remaining").html("Time Remaining: " + seconds + "  seconds");
+	if(seconds < 1){
+		clearInterval(time);
+		answered = false;
+		correctedAnswers();//switch pages to show corrects answers
+	}
+}
+
+function correctedAnswers()
 {
 	$("#current-question").empty();
     $(".answer-buttons").hide(); //Clears question page
@@ -108,28 +111,49 @@ function theQuestions()
 	var answerIndex = triviaQuestions[currentQuestion].answer;
 	$("#gif").html('<img src = "assets/images/'+ gifArray[currentQuestion] +'.gif" width = "400px">');//gif from assets 
 	//checks to see correct, incorrect, or unanswered
-	if((userSelect == answerIndex) && (answered == true)){
+	if((userSelect == answerIndex) && (answered == true))
+	{
 		correctAnswer++;
 		$("#game-alert").html(gameAlerts.correct);
-	} else if((userSelect != answerIndex) && (answered == true)){
+	} 
+	else if((userSelect != answerIndex) && (answered == true))
+	{
 		incorrectAnswer++;
 		$("#game-alert").html(gameAlerts.incorrect);
 		$("#corrected-answer").html("The correct answer was: " + isAnswerCorrect);
-	} else{
+	} 
+	else
+	{
 		unanswered++;
 		$("#game-alert").html(gameAlerts.endTime);
 		$("#corrected-answer").html("The correct answer was: " + isAnswerCorrect);
 		answered = true;
 	}
 	//add timer for the corrected answers page here 
-	if(currentQuestion == (triviaQuestions.length-1)){
-		setTimeout(scoreboard, 5000)
-	} else{
+	if(currentQuestion == (triviaQuestions.length-1))
+	{
+		setTimeout(endGameScores, 5000)
+	} 
+	else
+	{
 		currentQuestion++;
 		setTimeout(theQuestions, 5000);
 	}	
 }
-		
+
+function endGameScores()
+{
+	$("#time-remaining").empty();
+	$("#game-alert").empty();
+	$("#corrected-answer").empty();
+	$("#gif").empty();
+
+	$("#end-of-game").html(gameAlerts.finished);
+	$("#number-answers-correct").html("Correct Answers: " + correctAnswer);
+	$("#number-answers-incorrect").html("Incorrect Answers: " + incorrectAnswer);
+	$("#unanswered").html("Unanswered: " + unanswered);
+}
+
 //when answer is clicked 
 //function answerClick()  {}
 
