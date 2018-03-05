@@ -21,9 +21,34 @@ var notAnswered = 0;
 var count = 20;
 var counter = count;
 
+//click button to start game 
+$(".start-game-button").click(function()
+{   //clear start button when clicked
+    $(this).hide();
+});
 
-$(document).ready(function()
-{ 
+//clear function for game  reset/start
+function startGame()
+{
+    $('#final-message').empty();
+	$('#correct-answers').empty();
+	$('#incorrect-answers').empty();
+	$('#unanswered').empty();
+	currentQuestion = 0;
+	thatsCorrect = 0;
+	thatsIncorrect = 0;
+	notAnswered = 0;
+	pullQuestion();
+}
+
+//fuction to pull question
+function pullQuestion()
+{
+
+}
+
+
+
 //make a timer function for question
 
 function gameTimer()
@@ -43,15 +68,9 @@ function timer()
 $(".timer-class").html("Time Remaining: " + count + " seconds");
 }
 }
-//click button to start game 
-$(".start-game-button").click(function()
-{   //clear start button when clicked
-    $(this).hide();
-    loadQuestion();
-});
 
 //start game function
-function startGame()
+function iDontKNow()
 {
     //start timer
     gameTimer();
@@ -113,6 +132,4 @@ function questionDisplayed()//function to pick a question each time
     }
 }*/
 
-
-});
 
