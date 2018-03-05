@@ -26,7 +26,7 @@ $(document).ready(function()
 
 function gameTimer()
 {
-var count = 15;
+var count = 20;
 var counter = setInterval(timer, 1000);
 
 function timer()
@@ -35,36 +35,32 @@ function timer()
     if (count <= 0)
     {
         clearInterval(counter);
-            //call next question here*******
+           return; //call next question here*******
     }
-}
+
 $(".timer-class").html("Time Remaining: " + count + " seconds");
 }
-function questionDisplayed()//function to pick a question each time
-{
-    for (var i = questions.length - 1; i >= 0; i--) 
-    {
-        if (questions[i] === 'something') 
-        { 
-            questions.splice(i, 1);
-        }
-    }
 }
 //start game function
 $(".start-game-button").click(function()
 {   //clear start button when clicked
     $(this).hide();
+    gameTimer();//start timer
     //add first question to html
-    $(".trivia-question").html(questions[0].question);
+    $(".trivia-question1").html(questions[0].question);
     //make a loop for answer choices and add to html
     var answerChoices = (questions[0].choices);
     for (var i = 0; i < answerChoices.length; i++)  
     {
     var a = $("<button>");
-    a.addClass("btn");
+    a.addClass("btn btn-outline-dark");
     a.addClass("answer-buttons");
     a.text(answerChoices[i]);  
-    $(".trivia-answers").append(a);
+    $(".trivia-answers1").append(a);
+    }
+
+    function answerClick()  {
+
     }
 
 });
@@ -77,11 +73,24 @@ $(".start-game-button").click(function()
 //display the first question
 
 //timeout function for moving on????
+
+
 /*setTimeout(questionTimer, 1000 * 15);
 function questionTimer()
 {
 $(".timer-class").append("mom?");
 console.log("mom");
+}
+
+function questionDisplayed()//function to pick a question each time
+{
+    for (var i = questions.length - 1; i >= 0; i--) 
+    {
+        if (questions[i] === 'something') 
+        { 
+            questions.splice(i, 1);
+        }
+    }
 }*/
 
 
