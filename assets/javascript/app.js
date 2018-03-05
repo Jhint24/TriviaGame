@@ -16,7 +16,18 @@ var gifArray = ["question1", "question2"];
 var currentQuestion; 
 var correctAnswer; 
 var incorrectAnswer; 
-var unanswered; 
+var unanswered;
+var seconds; 
+var time; 
+var answered; 
+var userSelect;
+
+var gameAlerts = {
+	correct: "The customer is always right. FALSE, you are!",
+	incorrect: "NOOOOOOOOOOOOOO!",
+	endTime: "'You miss 100% of the shots you don't take' -Wayne Gretzky" + "\xa0" + "-Michael Scott",
+    finished: "The only time I set the bar low is for Limbo"
+}
 
 
 $(".start-game-button").on("click", function(){
@@ -80,8 +91,44 @@ function theQuestions()
 		if(seconds < 1){
 			clearInterval(time);
 			answered = false;
+			correctedAnswers();//switch pages to show corrects answers
 		}
 	}
+
+	function correctedAnswers()
+{
+	$("#current-question").empty();
+    $(".answer-buttons").hide(); //Clears question page
+    $(".btn btb-outline-dark").empty();//tested without, not sure what this is doing**
+	$(".question").empty();
+		//find out if answers are correct
+		//find out if answers are incorrect
+		//post the alert and gif
+	var isAnswerCorrect = triviaQuestions[currentQuestion].answerList[triviaQuestions[currentQuestion].answer];
+	var answerIndex = triviaQuestions[currentQuestion].answer;
+	$("#gif").html('<img src = "assets/images/'+ gifArray[currentQuestion] +'.gif" width = "400px">');//gif from assets 
+	//checks to see correct, incorrect, or unanswered
+	if((userSelect == answerIndex) && (answered == true)){
+		correctAnswer++;
+		$("#game-alert").html(gameAlerts.correct);
+	} else if((userSelect != answerIndex) && (answered == true)){
+		incorrectAnswer++;
+		$("#game-alert").html(gameAlerts.incorrect);
+		$("#corrected-answer").html("The correct answer was: " + isAnswerCorrect);
+	} else{
+		unanswered++;
+		$("#game-alert").html(gameAlerts.endTime);
+		$("#corrected-answer").html("The correct answer was: " + isAnswerCorrect);
+		answered = true;
+	}
+	//add timer for the corrected answers page here 
+	if(currentQuestion == (triviaQuestions.length-1)){
+		setTimeout(scoreboard, 5000)
+	} else{
+		currentQuestion++;
+		setTimeout(theQuestions, 5000);
+	}	
+}
 		
 //when answer is clicked 
 //function answerClick()  {}
