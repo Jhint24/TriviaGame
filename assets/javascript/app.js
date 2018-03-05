@@ -1,6 +1,6 @@
 var questions = //create list of questions
-[{
-
+[
+{
     question: "What is Michael Scott's middle name?",
     choices: ["Allen", "Gary", "Orville", "Mykonos"],
     correctAnswer: 1,
@@ -22,8 +22,19 @@ var notAnswered = 0;
 
 $(document).ready(function()
 { 
-//make a timer function for question
+//make variables objects inside of game
+var letsPlay = {
+    questions:questions,
+    currentQuestion:0,
+    counter:counStartNumber,
+    thatscorrect:0,
+    thatsIncorrect:0,
 
+
+
+
+
+//make a timer function for question
 function gameTimer()
 {
 var count = 20;
@@ -53,10 +64,11 @@ function startGame()
 {
     //start timer
     gameTimer();
-    //add first question to html
-    $(".trivia-question").html(questions[0].question);
+    //add  question to html
+    currentQuestion = 
+    $(".trivia-question").html(questions[currentQuestion].question); 
     //make a loop for answer choices and add to html
-    var answerChoices = (questions[0].choices);
+    var answerChoices = (questions[currentQuestion].choices);
     for (var i = 0; i < answerChoices.length; i++)  
     {
     var a = $("<button>");
@@ -65,7 +77,8 @@ function startGame()
     a.text(answerChoices[i]);  
     $(".trivia-answers").append(a);
     }
-}
+    }
+
     
 //when answer is clicked 
 function answerClick()  {
@@ -100,6 +113,6 @@ function questionDisplayed()//function to pick a question each time
     }
 }*/
 
-
+}
 });
 
