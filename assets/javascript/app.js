@@ -14,12 +14,26 @@ var triviaQuestions = //create list of questions
 },
 {
     question: "Where does Jim propose to Pam?",
-    answerList: ["The Office Roof", "Niagra Falls", "Rest Stop", "The Hospital"],
+    answerList: ["The Office Roof", "Niagra Falls", "A Rest Stop", "The Hospital"],
     answer: 2,
     image: ("") 
 },
+{
+    question: "What does Dwight grow/raise on Schrute Farms?",
+    answerList: ["Beets", "Pigs", "Apples", "Cattle"],
+    answer: 0,
+    image: ("") 
+},
+{
+    question: "Who sets fire to the office in the second season?",
+    answerList: ["Pam", "Michael", "Kevin", "Ryan"],
+    answer: 3,
+    image: ("") 
+},
+
+
 ];
-var gifArray = ["question1", "question2", "question3"];
+var gifArray = ["question1", "question2", "question3", "question4", "question5"];
 var currentQuestion; 
 var correctAnswer; 
 var incorrectAnswer; 

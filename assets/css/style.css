@@ -39,6 +39,7 @@ body
 {
     font-family: typewriterFont;
     font-size: 2em;
+    margin-bottom: 20px;
 }
 
 .answer-list
@@ -53,10 +54,10 @@ body
     font-size: 30px;
 }
 
-#current-question, #game-alert, #number-answers-correct, #number-answers-incorrect, #unanswered
+#current-question, #game-alert, #number-answers-correct, #number-answers-incorrect, #unanswered, #corrected-answer, #end-of-game
 {
-    color: lightblue;
-    margin: 10px;
+    color: aliceblue;
+    margin: 15px;
     font-size: 20px;
 }
 
