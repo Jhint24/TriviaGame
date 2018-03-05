@@ -11,29 +11,26 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+
 </head>
 <body>
     <div class="container">
     <div class="jumbotron game-center">
         <h1 class="display-4 trivia-title">Dunder Mifflin Trivia</h1>
-        <!--questions-->
-        <div id ="timer-class"><p></p></div>    
-            <hr class="my-4"><!--divider line-->
-        <div id ="current-question"></div>
-        <div class = "trivia-question"><p></p></div>
-        <div class = "trivia-answers"></div>
-        
-        <!--image page-->
+        <!--questions/answers-->
+        <div id="time-remaining"></div>
+        <div id="current-question"></div>
+        <div class="question"></div>
+        <div class="answers-list"></div>
+        <!--show correct answer-->
         <div id="message"></div>
         <div id="corrected-answer"></div>
         <div id="gif"></div>
-        
-        <!-- final score -->
-        <div id="final-message"></div>
-        <div id="correct-answers"></div>
-        <div id="incorrect-answers"></div>
+        <!--End of Game-->
+        <div id="end-of-game"></div>
+        <div id="number-answers-correct"></div>
+        <div id="number-answers-incorrect"></div>
         <div id="unanswered"></div>
-        <div id="start-over"></div>
 
             <p class="lead start-paragraph">
         <button type="button" class="btn btn-success btn-lg start-game-button">Click Me (That's what She Said)...</button>
@@ -43,5 +40,6 @@
 
     
     <script type="text/javascript" src="assets/javascript/app.js"></script>
+
 </body>
 </html>

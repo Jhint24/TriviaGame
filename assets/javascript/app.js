@@ -1,47 +1,67 @@
-var questions = //create list of questions
+var triviaQuestions = //create list of questions
 [
 {
     question: "What is Michael Scott's middle name?",
-    choices: ["Allen", "Gary", "Orville", "Mykonos"],
-    correctAnswer: 1,
+    answerList: ["Allen", "Gary", "Orville", "Mykonos"],
+    answer: 1,
     image: ("") 
 },
 {
     question: "What is the title of the movie in which Michael Scott wrote, directed and starred?",
-    choices: ["The Flenderson Files", "Fool me Once", "I Declare Bankruptcy", "Threat Level Midnight"],
-    correctAnswer: 3,
+    answerList: ["The Flenderson Files", "Fool me Once", "I Declare Bankruptcy", "Threat Level Midnight"],
+    answer: 3,
     image: ("")
 }];
-//create variables
-var allQuestions = [];
-var currentQuestion;
-var thatsCorrect;
-var thatsIncorrect;
-var notAnswered;
-var answered;
-var count = 20;
-var counter = count;
+var gifArray = ["question1", "question2"];
+var currentQuestion; 
+var correctAnswer; 
+var incorrectAnswer; 
+var unanswered; 
 
-//click button to start game 
-$(".start-game-button").click(function()
-{   //clear start button when clicked
-    $(this).hide();
+
+$(".start-game-button").on("click", function(){
+	$(this).hide();
+	gameStart();
 });
 
-//clear function for game  reset/start
-function startGame()
-{
-    $("#final-message").empty();
-	$("#correct-answers").empty();
-	$("#incorrect-answers").empty();
+function gameStart(){
+	$("#end-of-game").empty();
+	$("#number-answers-correct").empty();
+	$("#number-answers-incorrect").empty();
 	$("#unanswered").empty();
 	currentQuestion = 0;
-	thatsCorrect = 0;
-	thatsIncorrect = 0;
-	notAnswered = 0;
-	pullQuestion();
+	correctAnswer = 0;
+	incorrectAnswer = 0;
+	unanswered = 0;
+	theQuestions();
 }
 
+function theQuestions(){
+	$("#game-alert").empty();
+	$("#corrected-answer").empty();
+	$("#gif").empty();
+	answered = true;
+	
+	//sets up new questions & answerList
+	$("#current-question").html('Question #'+(currentQuestion+1)+'/'+triviaQuestions.length);
+	$(".question").html(triviaQuestions[currentQuestion].question);
+	for(var i = 0; i < 4; i++){//use the number of answers 
+		var choices = $("<button>");
+		choices.text(triviaQuestions[currentQuestion].answerList[i]);
+		choices.attr({"data-index": i });//****data index */
+        choices.addClass("answer-buttons");
+        choices.addClass("btn btb-outline-dark");
+		$(".answers-list").append(choices);
+	}
+	timerCount();
+	//clicking an answer button
+	$(".answer-buttons").on("click",function(){
+		userSelect = $(this).data("index");
+		clearInterval(time);//time clear
+		$(".answer-buttons").hide();//only hide works here? 
+		correctedAnswers();
+	});
+}
 //fuction to pull question
 function pullQuestion()
 {
@@ -111,12 +131,8 @@ function iDontKNow()
         currentQuestion++;
         loadQuestion();
     }
-}
-    
 //when answer is clicked 
-function answerClick()  {
-
-    }
+//function answerClick()  {}
 
 
 
@@ -137,12 +153,11 @@ console.log("mom");
 
 function questionDisplayed()//function to pick a question each time
 {
-    for (var i = questions.length - 1; i >= 0; i--) 
-    {
-        if (questions[i] === 'something') 
-        { 
-            questions.splice(i, 1);
-        }
-    }
+for (var i = questions.length - 1; i >= 0; i--) 
+{
+	if (questions[i] === 'something') 
+	{ 
+		questions.splice(i, 1);
+	}
+}
 }*/
-
