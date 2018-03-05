@@ -36,7 +36,8 @@ function gameStart(){
 	theQuestions();
 }
 
-function theQuestions(){
+function theQuestions()
+{
 	$("#game-alert").empty();
 	$("#corrected-answer").empty();
 	$("#gif").empty();
@@ -55,34 +56,33 @@ function theQuestions(){
 	}
 	timerCount();
 	//clicking an answer button
-	$(".answer-buttons").on("click",function(){
+	$(".answer-buttons").on("click",function()
+	{
 		userSelect = $(this).data("index");
 		clearInterval(time);//time clear
 		$(".answer-buttons").hide();//only hide works here? 
 		correctedAnswers();
 	});
 }
-//fuction to pull question
-function pullQuestion()
-{
-    $("#message").empty();
-	$("#corrected-answer").empty();
-	$("#gif").empty();
-    answered = true;
-/*
-    $("#current-question").html("Question #"+(currentQuestion+1)+"/"+questions.length);
-	$(".question").html("<h2>" + questions[currentQuestion].question + "</h2>");
-	for(var i = 0; i < 4; i++){
-		var answerChoices = $("<div>");
-		answerChoices.text(triviaQuestions[currentQuestion].answerList[i]);
-		answerChoices.attr({"data-index": i });
-		answerChoices.addClass("this-choice");
-		$(".trivia-answers").append(choices);
-        
-        }*/
-}
-
-
+	function timerCount()
+	{
+		seconds = 20;
+		$("#time-remaining").html("Time Remaining: " + seconds + "  seconds");
+		answered = true;
+		//set timer interval here
+		time = setInterval(showTimerCount, 1000);
+	}
+	
+	function showTimerCount()
+	{//what to do with info
+		seconds--;
+		$("#time-remaining").html("Time Remaining: " + seconds + "  seconds");
+		if(seconds < 1){
+			clearInterval(time);
+			answered = false;
+		}
+	}
+		
 //when answer is clicked 
 //function answerClick()  {}
 
