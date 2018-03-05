@@ -26,7 +26,7 @@ body
 .answer-buttons
 {
     background-color: darkgrey;
-    margin: 10px;
+    margin: 5px;
 }
 
 @font-face
@@ -35,14 +35,28 @@ body
     src: url(TravelingTypewriter.ttf);
 }
 
-.trivia-question
+.question
 {
     font-family: typewriterFont;
     font-size: 2em;
 }
 
-.trivia-answers
+.answer-list
 {
     font-family: typewriterFont;
     font-size: 2em;
 }
+#time-remaining
+{
+    color: lightgreen;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+#current-question, #game-alert, #number-answers-correct, #number-answers-incorrect, #unanswered
+{
+    color: lightblue;
+    margin: 10px;
+    font-size: 20px;
+}
+
