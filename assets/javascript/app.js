@@ -83,54 +83,6 @@ function pullQuestion()
 }
 
 
-
-//make a timer function for question
-
-function gameTimer()
-{
-var count = 20;
-var counter = setInterval(timer, 1000);
-
-function timer()
-{
-    count = count - 1;
-    if (count <= 0)
-    {
-        clearInterval(counter);
-           return; //call next question here*******
-    }
-
-$(".timer-class").html("Time Remaining: " + count + " seconds");
-}
-}
-
-//start game function
-function iDontKNow()
-{
-    //start timer
-    gameTimer();
-    //add  question to html
-   function loadQuestion()
-   {
-    $("#trivia-question").html(questions[currentQuestion].question); 
-    //make a loop for answer choices and add to html
-    var answerChoices = (questions[currentQuestion].choices);
-    for (var i = 0; i < answerChoices.length; i++)  
-        {
-        var a = $("<button>");
-        a.addClass("btn btn-outline-dark");
-        a.addClass("answer-buttons");
-        a.text(answerChoices[i]);  
-        $(".trivia-answers").append(a);
-        }
-    }
-    function nextQuestion()
-    {
-        counter=count;
-        gameTimer();
-        currentQuestion++;
-        loadQuestion();
-    }
 //when answer is clicked 
 //function answerClick()  {}
 
