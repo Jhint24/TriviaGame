@@ -18,23 +18,14 @@ var currentQuestion = 0;
 var thatsCorrect = 0;
 var thatsIncorrect = 0;
 var notAnswered = 0;
+var count = 20;
+var counter = count;
 
 
 $(document).ready(function()
 { 
-//make variables objects inside of game
-var letsPlay = {
-    questions:questions,
-    currentQuestion:0,
-    counter:counStartNumber,
-    thatscorrect:0,
-    thatsIncorrect:0,
-
-
-
-
-
 //make a timer function for question
+
 function gameTimer()
 {
 var count = 20;
@@ -56,7 +47,7 @@ $(".timer-class").html("Time Remaining: " + count + " seconds");
 $(".start-game-button").click(function()
 {   //clear start button when clicked
     $(this).hide();
-    startGame();
+    loadQuestion();
 });
 
 //start game function
@@ -65,20 +56,29 @@ function startGame()
     //start timer
     gameTimer();
     //add  question to html
-    currentQuestion = 
+   function loadQuestion()
+   {
+    currentQuestion = 0;
     $(".trivia-question").html(questions[currentQuestion].question); 
     //make a loop for answer choices and add to html
     var answerChoices = (questions[currentQuestion].choices);
     for (var i = 0; i < answerChoices.length; i++)  
+        {
+        var a = $("<button>");
+        a.addClass("btn btn-outline-dark");
+        a.addClass("answer-buttons");
+        a.text(answerChoices[i]);  
+        $(".trivia-answers").append(a);
+        }
+    }
+    function nextQuestion()
     {
-    var a = $("<button>");
-    a.addClass("btn btn-outline-dark");
-    a.addClass("answer-buttons");
-    a.text(answerChoices[i]);  
-    $(".trivia-answers").append(a);
+        counter=count;
+        gameTimer();
+        currentQuestion++;
+        loadQuestion();
     }
-    }
-
+}
     
 //when answer is clicked 
 function answerClick()  {
@@ -113,6 +113,6 @@ function questionDisplayed()//function to pick a question each time
     }
 }*/
 
-}
+
 });
 
