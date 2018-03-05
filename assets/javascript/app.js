@@ -14,10 +14,11 @@ var questions = //create list of questions
 }];
 //create variables
 var allQuestions = [];
-var currentQuestion = 0;
-var thatsCorrect = 0;
-var thatsIncorrect = 0;
-var notAnswered = 0;
+var currentQuestion;
+var thatsCorrect;
+var thatsIncorrect;
+var notAnswered;
+var answered;
 var count = 20;
 var counter = count;
 
@@ -30,10 +31,10 @@ $(".start-game-button").click(function()
 //clear function for game  reset/start
 function startGame()
 {
-    $('#final-message').empty();
-	$('#correct-answers').empty();
-	$('#incorrect-answers').empty();
-	$('#unanswered').empty();
+    $("#final-message").empty();
+	$("#correct-answers").empty();
+	$("#incorrect-answers").empty();
+	$("#unanswered").empty();
 	currentQuestion = 0;
 	thatsCorrect = 0;
 	thatsIncorrect = 0;
@@ -44,7 +45,21 @@ function startGame()
 //fuction to pull question
 function pullQuestion()
 {
-
+    $("#message").empty();
+	$("#corrected-answer").empty();
+	$("#gif").empty();
+    answered = true;
+/*
+    $("#current-question").html("Question #"+(currentQuestion+1)+"/"+questions.length);
+	$(".question").html("<h2>" + questions[currentQuestion].question + "</h2>");
+	for(var i = 0; i < 4; i++){
+		var answerChoices = $("<div>");
+		answerChoices.text(triviaQuestions[currentQuestion].answerList[i]);
+		answerChoices.attr({"data-index": i });
+		answerChoices.addClass("this-choice");
+		$(".trivia-answers").append(choices);
+        
+        }*/
 }
 
 
@@ -77,8 +92,7 @@ function iDontKNow()
     //add  question to html
    function loadQuestion()
    {
-    currentQuestion = 0;
-    $(".trivia-question").html(questions[currentQuestion].question); 
+    $("#trivia-question").html(questions[currentQuestion].question); 
     //make a loop for answer choices and add to html
     var answerChoices = (questions[currentQuestion].choices);
     for (var i = 0; i < answerChoices.length; i++)  
@@ -131,5 +145,4 @@ function questionDisplayed()//function to pick a question each time
         }
     }
 }*/
-
 
