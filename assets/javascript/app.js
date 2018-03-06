@@ -25,15 +25,18 @@ var triviaQuestions = //create list of questions
     image: ("") 
 },
 {
-    question: "Who sets fire to the office in the second season?",
+    question: "Who sets fire to the office using a toaster oven?",
     answerList: ["Pam", "Michael", "Kevin", "Ryan"],
     answer: 3,
     image: ("") 
 },
-
-
-];
-var gifArray = ["question1", "question2", "question3", "question4", "question5"];
+{
+    question: "Which one of the following names is NOT a character alias used by Michael Scott",
+    answerList: ["Tater Scott", "Prison Mike", "Oriville Tootenbacher", "Michael Klump"],
+    answer: 0,
+    image: ("") 
+}];
+var gifArray = ["question1", "question2", "question3", "question4", "question5", "question6"];
 var currentQuestion; 
 var correctAnswer; 
 var incorrectAnswer; 
@@ -48,7 +51,7 @@ var gameAlerts =
 	correct: "The customer is always right. FALSE, you are!",
 	incorrect: "NOOOOOOOOOOOOOO!",
 	endTime: "'You miss 100% of the shots you don't take' -Wayne Gretzky -Michael Scott",
-    finished: "The only time I set the bar low is for Limbo"
+    finished: "'The only time I set the bar low is for Limbo'"
 }
 
 $(".start-game-button").on("click", function()
