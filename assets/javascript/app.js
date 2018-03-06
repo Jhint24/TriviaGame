@@ -80,7 +80,7 @@ function theQuestions()
 	$("#gif").empty();
 	answered = true;
 	
-	//sets up new questions & answerList
+	//new questions here
 	$("#current-question").html('Question #'+(currentQuestion+1)+'/'+triviaQuestions.length);
 	$(".question").html(triviaQuestions[currentQuestion].question);
 	for(var i = 0; i < 4; i++){//use the number of answers 
@@ -101,7 +101,7 @@ function theQuestions()
 		correctedAnswers();
 	});
 }
-
+//redone using setInterval 
 function timerCount()
 {
 	seconds = 20;
@@ -112,7 +112,7 @@ function timerCount()
 }
 
 function showTimerCount()
-{//what to do with info
+{//take the time and add to html div class
 	seconds--;
 	$("#time-remaining").html("Time Remaining: " + seconds + "  seconds");
 	if(seconds < 1){
