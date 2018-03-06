@@ -176,6 +176,7 @@ function endGameScores()
 	$("#number-answers-correct").html("Correct Answers: " + correctAnswer);
 	$("#number-answers-incorrect").html("Incorrect Answers: " + incorrectAnswer);
 	$("#unanswered").html("Unanswered: " + unanswered);
+	$(".start-game-button").show();
 }
 
 //when answer is clicked 
